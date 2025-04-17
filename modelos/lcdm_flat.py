@@ -137,13 +137,6 @@ print(ol_media, "+-", ol_er)
 variables = np.array([samples[:,0], samples[:,1], omega_lambda]).T
 labels = ["h", "omega_m", "omega_lambda"]
 
-
-#guardamos en 2 archivos.txt los valores obtenidos y los valores medios
-encabezado_m = "h_media\th_err\tomega_m\tomega_m_err\tomega_lambda\tomega_lambda_err"
-val_medios_err = np.array([h_media, h_er, om_media, om_er, ol_media, ol_er])
-np.savetxt("lcdm_pr_val_medios.txt", val_medios_err, fmt='%.16f',
-           delimiter='\t', header = encabezado_m, comments='')
-
 encabezado_s = "h\tomega_m\tomega_lambda"
 np.savetxt("lcdm_pr_param.txt", variables, fmt='%.16f', delimiter='\t',
            header=encabezado_s, comments='')
