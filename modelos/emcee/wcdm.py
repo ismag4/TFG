@@ -142,11 +142,13 @@ ol_er = np.std(omega_lambda)
 print(ol_media, "+-", ol_er)
 
 
-variables = np.array([samples[:,0], samples[:,1], samples[:,3],
+variables = np.array([samples[:,0], samples[:,1], samples[:,2], samples[:,3],
                       omega_lambda]).T
-labels = ["h", "omega_m", "w", "omega_lambda"]
+labels = ["h", "omega_m","M", "w", "omega_lambda"]
 
-encabezado_s = "h\tomega_m\tw\tomega_lambda"
+
+#guardamos en archivos.txt
+encabezado_s = "h\tomega_m\M\tw\tomega_lambda"
 np.savetxt("wcdm_pr_param.txt", variables, fmt='%.16f', delimiter='\t',
            header=encabezado_s, comments='')
 
