@@ -2,7 +2,7 @@
 #CONSIDERANDO PRIOR EN "h"
 #DATOS EMPLEADOS: PANTHEON
 #ANÁLISIS MEDIANTE EMCEE
-#FECHA ÚLTIMA MODIFICACIÓN: 17/04/2025
+#FECHA ÚLTIMA MODIFICACIÓN: 21/04/2025
 
 import numpy as np
 import emcee
@@ -134,10 +134,12 @@ print(M_media, "+-", M_er)
 print(om_media, "+-", om_er)
 print(ol_media, "+-", ol_er)
 
-variables = np.array([samples[:,0], samples[:,1], omega_lambda]).T
-labels = ["h", "omega_m", "omega_lambda"]
+variables = np.array([samples[:,0], samples[:,1], samples[:,2], omega_lambda]).T
+labels = ["h", "omega_m", "M","omega_lambda"]
 
-encabezado_s = "h\tomega_m\tomega_lambda"
+
+#guardamos en archivos.txt
+encabezado_s = "h\tomega_m\M\tomega_lambda"
 np.savetxt("lcdm_pr_param.txt", variables, fmt='%.16f', delimiter='\t',
            header=encabezado_s, comments='')
 
