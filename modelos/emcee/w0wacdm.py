@@ -2,7 +2,7 @@
 #CONSIDERANDO PRIOR EN "h"
 #DATOS EMPLEADOS: PANTHEON
 #ANÁLISIS MEDIANTE EMCEE
-#FECHA ÚLTIMA MODIFICACIÓN: 17/04/2025
+#FECHA ÚLTIMA MODIFICACIÓN: 21/04/2025
 
 import numpy as np
 import emcee
@@ -54,7 +54,7 @@ def likelihood_total(p, c, z, m_b_corr, invcov):
     return l_sn + l_ext
 
 def log_probability(p, c, z, m_b_corr, invcov):
-    if ((0.2<p[0]<1.0) and (0.0<p[1]<1.0)):
+    if ((0.2<p[0]<1.0) and (0.0<p[1]<1.0) and (-2<p[4]<1)):
         return likelihood_total(p, c, z, m_b_corr, invcov)
     return -np.inf 
 
@@ -148,12 +148,12 @@ ol_er = np.std(omega_lambda)
 print(ol_media,"+-", ol_er)
 
 #elaboración gráfico corner
-variables = np.array([samples[:,0], samples[:,1], samples[:,3], samples[:,4],
+variables = np.array([samples[:,0], samples[:,1], samples[:,2], samples[:,3], samples[:,4],
                       omega_lambda]).T
-labels = ["h", "omega_m", "w0", "wa", "omega_lambda"]
+labels = ["h", "omega_m", "M", "w0", "wa", "omega_lambda"]
 
 
-encabezado_s = "h\tomega_m\tw\tomega_lambda"
+encabezado_s = "h\tomega_m\tM\tw\tomega_lambda"
 np.savetxt("wcdm_pr_param.txt", variables, fmt='%.16f', delimiter='\t',
            header=encabezado_s, comments='')
 
