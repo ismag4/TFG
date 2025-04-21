@@ -2,7 +2,7 @@
 #CONSIDERANDO PRIOR EN "h"
 #DATOS EMPLEADOS: PANTHEON
 #ANÁLISIS MEDIANTE EMCEE
-#FECHA ÚLTIMA MODIFICACIÓN: 17/04/2025
+#FECHA ÚLTIMA MODIFICACIÓN: 21/04/2025
 
 import numpy as np
 import emcee
@@ -120,7 +120,7 @@ p0 = np.random.randn(nwalkers, ndim)
 p0[:,0] = p0[:,0]*0.02+ 0.7
 p0[:,1] = p0[:,1]*0.06 + 0.3
 p0[:,2] = p0[:,2]*0.04 -19.1
-p0[:,3] = p0[:,3]*0.05
+p0[:,3] = p0[:,3]*0.0005
 
 sampler = emcee.EnsembleSampler(
     nwalkers, ndim, log_probability, args=(c, z, m_b_corr, invcov)
@@ -152,10 +152,10 @@ ol_er = np.std(omega_lambda)
 print(ol_media, "+-", ol_er)
 
 #elaboración gráfico corner
-variables = np.array([samples[:,0], samples[:,1], samples[:,3], omega_lambda]).T
-labels = ["h", "omega_m", "omega_k","omega_lambda"]
+variables = np.array([samples[:,0], samples[:,1], samples[:,2], samples[:,3], omega_lambda]).T
+labels = ["h", "omega_m", "M", "omega_k","omega_lambda"]
 
-encabezado_s = "h\tomega_m\tomega_k\tomega_lambda"
+encabezado_s = "h\tomega_m\tM\tomega_k\tomega_lambda"
 np.savetxt("lcdm_cuv_pr_param.txt", variables, fmt='%.16f', delimiter='\t',
            header=encabezado_s, comments='')
 
