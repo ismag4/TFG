@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 h = np.loadtxt('lcdm_param.txt', skiprows = 1, usecols = 0, unpack = False)
 om = np.loadtxt('lcdm_param.txt', skiprows = 1, usecols = 1, unpack = False)
-ol = np.loadtxt('lcdm_param.txt', skiprows = 1, usecols = 2, unpack = False)
+ol = np.loadtxt('lcdm_param.txt', skiprows = 1, usecols = 3, unpack = False)
 
 samples = np.array([h, om, ol]).T
 names = ['h', 'omega_m', 'omega_lambda']
