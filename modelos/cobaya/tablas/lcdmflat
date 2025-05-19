@@ -1,0 +1,20 @@
+import numpy as np
+from getdist import MCSamples
+from getdist import plots
+import matplotlib.pyplot as plt
+
+h = np.loadtxt('lcdm.1.txt', skiprows = 1, usecols = 4, unpack = False)
+om = np.loadtxt('lcdm.1.txt', skiprows = 1, usecols = 10, unpack = False)
+ol = np.loadtxt('lcdm.1.txt', skiprows = 1, usecols = 12, unpack = False)
+
+samples = np.array([h, om, ol]).T
+names = ['H_0', 'omega_m', 'omega_lambda']
+labels = [r'H_0', r'\Omega_m', r'\Omega_\Lambda']
+
+mc_samples = MCSamples(samples=samples, names=names, labels=labels)
+
+print(mc_samples.getTable(limit=1).tableTex())
+
+g = plots.get_subplot_plotter()
+g.triangle_plot(mc_samples, filled=True)
+plt.show()
