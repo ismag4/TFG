@@ -1,0 +1,21 @@
+from getdist import plots
+from getdist import loadMCSamples
+
+# Carga de las cadenas (omite el .txt o .txt.gz)
+samples = loadMCSamples('/media/FQM378/iantequera/modelos_cosmo/lcdm_cobaya/wcdm/wcdm2/wcdm')
+# Parámetros que quieres mostrar
+param_names = ['H0', 'w0_fld', 'Omega_m']
+
+# Obtener tabla LaTeX
+latex_table = samples.getTable().tableTex(param_names)
+print(latex_table)
+
+summary_table = samples.getTable(limit=1).tableTex(param_names)
+print(summary_table)
+
+
+g=plots.get_subplot_plotter(chain_dir=r'/media/FQM378/iantequera/modelos_cosmo/lcdm_cobaya/wcdm')
+roots = ['wcdm']
+params = ['H0', 'w0_fld', 'Omega_m']
+g.triangle_plot(roots, params, filled=True)
+g.export()
