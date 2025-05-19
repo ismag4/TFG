@@ -1,5 +1,10 @@
 # TFG
-En este repositorio se muestran los datos empleados, los códigos desarrollados y los resultados obtenidos en mi TFG sobre "Inferencia bayesiana en modelos de energía oscura con datos cosmológicos"
+En este repositorio se muestran los datos empleados, los códigos desarrollados, tanto con emcee como con Cobaya, así como los códigos empleados para obtener los coner plots como las tablas, en mi TFG sobre "Inferencia bayesiana en modelos de energía oscura con datos cosmológicos"
+
+## Directorios:
+- Modelos: distinguimos entre emcee y Cobaya
+- emcee: encontramos los 4 modelos desarrollados, además de un repositorio con los códigos para obtener los corner plots de dichos modelos.
+- Cobaya: encontramos los 2 modelos desarrollados, además de un repositorio con los códigos para obtener las tablas de dichos modelos, ya que la interfaz de getdist permite realizar los corner plots con los archivos de Cobaya fácilmente.
 
 ## Modelos analizados
 - **ΛCDM flat**: [h, Ωₘ, M]
