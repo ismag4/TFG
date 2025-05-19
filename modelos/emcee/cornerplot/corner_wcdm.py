@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 
 h = np.loadtxt('wcdm_param.txt', skiprows = 1, usecols = 0, unpack = False)
 om = np.loadtxt('wcdm_param.txt', skiprows = 1, usecols = 1, unpack = False)
-w = np.loadtxt('wcdm_param.txt', skiprows = 1, usecols = 2, unpack = False)
-ol = np.loadtxt('wcdm_param.txt', skiprows = 1, usecols = 3, unpack = False)
+w = np.loadtxt('wcdm_param.txt', skiprows = 1, usecols = 3, unpack = False)
+ol = np.loadtxt('wcdm_param.txt', skiprows = 1, usecols = 4, unpack = False)
 
 samples = np.array([h, om, w, ol]).T
 names = ['h', 'omega_m','w', 'omega_lambda']
