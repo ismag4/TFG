@@ -4,9 +4,10 @@ theory:
       N_ncdm: 1
       N_ur: 2.0328
 likelihood:
-  planckpr4lensing:
-    python_path: /opt/anaconda3/envs/cosmology/lib/python3.8/site-packages
-  sn.pantheonplus: null
+  sn.pantheon: null
+  planck_2018_lowl.TT: null
+  planck_2018_lowl.EE: null
+  planck_NPIPE_highl_CamSpec.TTTEEE: null
 params:
   logA:
     prior:
